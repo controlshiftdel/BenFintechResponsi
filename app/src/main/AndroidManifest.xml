@@ -11,8 +11,8 @@
         android:theme="@style/Theme.BenFintechResponsi">
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".RecoveryActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
