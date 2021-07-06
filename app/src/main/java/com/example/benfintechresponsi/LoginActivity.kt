@@ -55,13 +55,12 @@ class LoginActivity : AppCompatActivity() {
             val lojin= Intent(this, RegisterActivity::class.java)
             startActivity(lojin)
         }
-
-    }
-    fun masuk(){
-        val pencet = findViewById<Button>(R.id.btlogin)
-        pencet.setOnClickListener {
+        btlogin.setOnClickListener{
             val lojin= Intent(this, HomeActivity::class.java)
             startActivity(lojin)
         }
+
     }
+
+
 }
