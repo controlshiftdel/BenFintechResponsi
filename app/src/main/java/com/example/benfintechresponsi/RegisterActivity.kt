@@ -29,6 +29,11 @@ class RegisterActivity : AppCompatActivity() {
             etemail.setText("")
             etpassword.setText("")
             etemail.requestFocus()
+
+            val lojin= Intent(this, HomeActivity::class.java)
+            startActivity(lojin)
+            Toast.makeText(this, "Data Sudah Teregister, Selamat datang", Toast.LENGTH_LONG).show()
+
         }
 
 
