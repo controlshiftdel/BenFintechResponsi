@@ -8,12 +8,25 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        var helper = MyDBHelper(applicationContext)
+        var db = helper.readableDatabase
+        btlogin.setOnClickListener {
+            var args = listOf<String>(etemail.text.toString(), etpassword.text.toString()).toTypedArray()
+            var rs = db.rawQuery("SELECT * FROM USERS WHERE UNAME = ? AND PWD = ?", args)
+            if(rs.moveToNext())
+                Toast.makeText(applicationContext, " Selamat Datang !",Toast.LENGTH_LONG).show()
+
+            else
+                Toast.makeText(applicationContext, "Data User Tidak Terdaftar", Toast.LENGTH_SHORT).show()
+        }
 
 
         etemail.addTextChangedListener(object : TextWatcher {
@@ -32,13 +45,6 @@ class LoginActivity : AppCompatActivity() {
             }
         })
 
-
-
-        val pencet = findViewById<Button>(R.id.btlogin)
-        pencet.setOnClickListener {
-            val lojin= Intent(this, HomeActivity::class.java)
-            startActivity(lojin)
-        }
         val lupa = findViewById<TextView>(R.id.tvlupa)
         lupa.setOnClickListener {
             val lojin= Intent(this, RecoveryActivity::class.java)
@@ -50,5 +56,12 @@ class LoginActivity : AppCompatActivity() {
             startActivity(lojin)
         }
 
+    }
+    fun masuk(){
+        val pencet = findViewById<Button>(R.id.btlogin)
+        pencet.setOnClickListener {
+            val lojin= Intent(this, HomeActivity::class.java)
+            startActivity(lojin)
+        }
     }
 }
