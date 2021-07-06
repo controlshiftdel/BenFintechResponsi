@@ -13,6 +13,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
 
+
         val pencet = findViewById<Button>(R.id.btlogin)
         pencet.setOnClickListener {
             val lojin= Intent(this, HomeActivity::class.java)

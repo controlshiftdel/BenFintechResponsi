@@ -2,6 +2,7 @@ package com.example.benfintechresponsi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.benfintechresponsi.fragments.HistoryFragment
 import com.example.benfintechresponsi.fragments.HomeFragment
@@ -13,6 +14,13 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        var helper = MyDBHelper(applicationContext)
+        var db = helper.readableDatabase
+        var rs = db.rawQuery("SELECT * FROM USERS", null)
+
+        if (rs.moveToNext())
+            Toast.makeText(applicationContext, rs.getString(1), Toast.LENGTH_LONG).show()
 
 
         val homeFragment = HomeFragment()
@@ -41,3 +49,5 @@ class HomeActivity : AppCompatActivity() {
             commit()
     }
 }
+
+
