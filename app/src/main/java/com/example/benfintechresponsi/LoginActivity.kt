@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
             if(rs.moveToNext())
                 Toast.makeText(applicationContext, " Selamat Datang !",Toast.LENGTH_LONG).show()
 
+
             else
                 Toast.makeText(applicationContext, "Data User Tidak Terdaftar", Toast.LENGTH_SHORT).show()
         }
