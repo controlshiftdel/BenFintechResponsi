@@ -58,10 +58,8 @@ class LoginActivity : AppCompatActivity() {
 
     }
     fun masuk(){
-
             val lojin= Intent(this, HomeActivity::class.java)
             startActivity(lojin)
-
     }
 
 

@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_recovery.*
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_register.etemail
 import kotlinx.android.synthetic.main.activity_register.etpassword
@@ -39,6 +40,25 @@ class RegisterActivity : AppCompatActivity() {
 
         })
 
+        confirmpass.addTextChangedListener(object:TextWatcher  {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if(confirmpass.length() > 0 && etpassword.length() > 0){
+                    if(!confirmpass.equals(etpassword)) {
+                        confirmpass.setError("Password Tidak Cocok")
+                    }
+
+
+                }
+            }
+
+        })
+
         btregister.setOnClickListener{
             var cv = ContentValues()
             cv.put("UNAME", etemail.text.toString())
@@ -47,13 +67,14 @@ class RegisterActivity : AppCompatActivity() {
 
             etemail.setText("")
             etpassword.setText("")
-            etemail.requestFocus()
+            confirmpass.setText("")
 
-            val lojin= Intent(this, HomeActivity::class.java)
-            startActivity(lojin)
-            Toast.makeText(this, "Data Sudah Teregister, Selamat datang", Toast.LENGTH_LONG).show()
 
-        }
+                val lojin = Intent(this, HomeActivity::class.java)
+                startActivity(lojin)
+                Toast.makeText(this, "Data Sudah Teregister, Selamat datang", Toast.LENGTH_LONG).show()
+
+            }
 
 
         }
