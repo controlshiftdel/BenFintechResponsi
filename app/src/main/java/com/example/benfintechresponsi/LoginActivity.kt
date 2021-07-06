@@ -22,9 +22,7 @@ class LoginActivity : AppCompatActivity() {
             var args = listOf<String>(etemail.text.toString(), etpassword.text.toString()).toTypedArray()
             var rs = db.rawQuery("SELECT * FROM USERS WHERE UNAME = ? AND PWD = ?", args)
             if(rs.moveToNext())
-                Toast.makeText(applicationContext, " Selamat Datang !",Toast.LENGTH_LONG).show()
-
-
+                masuk()
             else
                 Toast.makeText(applicationContext, "Data User Tidak Terdaftar", Toast.LENGTH_SHORT).show()
         }
@@ -56,10 +54,13 @@ class LoginActivity : AppCompatActivity() {
             val lojin= Intent(this, RegisterActivity::class.java)
             startActivity(lojin)
         }
-        btlogin.setOnClickListener{
+
+
+    }
+    fun masuk(){
+
             val lojin= Intent(this, HomeActivity::class.java)
             startActivity(lojin)
-        }
 
     }
 
