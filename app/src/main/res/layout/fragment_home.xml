@@ -14,7 +14,7 @@
             android:layout_height="90dp"
             android:orientation="horizontal"
             android:padding="2dp"
-            android:background="#A5A5A5"
+            android:background="#3F51B5"
             android:id="@+id/linearhome">
             <ImageView
                 android:id="@+id/ivpay"
@@ -64,12 +64,19 @@
             android:textSize="20sp"
             android:text="Ini Rekomendasi"
             android:layout_below="@+id/linearhome"/>
+        <TextView
+        android:id="@+id/tvbar"
+        android:layout_width="match_parent"
+        android:layout_height="11dp"
+        android:textSize="10sp"
+        android:text="----------------------------------------------------------"
+        android:layout_below="@+id/tvrekomen"/>
 
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tvrekomen">
+            android:layout_below="@+id/tvbar">
 
             <LinearLayout
                 android:layout_width="match_parent"

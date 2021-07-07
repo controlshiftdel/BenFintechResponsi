@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3F51B5"
+    android:padding="10dp">
+
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/fotoprof"
+        android:layout_alignParentRight="true"/>
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="Bayar Bos"
+        android:layout_alignParentLeft="true"
+        android:textSize="20sp"/>
+
+
+</RelativeLayout>
