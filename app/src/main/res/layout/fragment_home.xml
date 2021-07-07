@@ -7,12 +7,69 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/rlatas">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:background="#A5A5A5"
+            android:id="@+id/linearhome">
+            <ImageView
+                android:id="@+id/ivpay"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_baseline_payments_24"/>
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="PAY"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@+id/ivpay"/>
+
+            <ImageView
+                android:id="@+id/ivhistory"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_toLeftOf="@+id/ivacc"
+                android:layout_toRightOf="@+id/ivpay"
+                android:src="@drawable/ic_baseline_history_24" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:text="HISTORY"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/ivpay"/>
+            <ImageView
+                android:id="@+id/ivacc"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_baseline_account_box_24"/>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:text="PROFILE"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/ivpay"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvrekomen"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:textSize="20sp"
+            android:text="Ini Rekomendasi"
+            android:layout_below="@+id/linearhome"/>
 
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tvrekomen">
 
             <LinearLayout
                 android:layout_width="match_parent"

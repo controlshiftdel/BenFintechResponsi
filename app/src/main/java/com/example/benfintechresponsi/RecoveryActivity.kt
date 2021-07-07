@@ -16,4 +16,11 @@ class RecoveryActivity : AppCompatActivity() {
             startActivity(lojin)
         }
     }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
 }
