@@ -14,8 +14,7 @@ class PaymentActivity : AppCompatActivity() {
 
         btpay.setOnClickListener{
             validatepay()
-            val lojin= Intent(this, HomeActivity::class.java)
-            startActivity(lojin)
+            Toast.makeText(this, "SUKSES ", Toast.LENGTH_LONG).show()
         }
     }
     fun validatepay() : Boolean{
@@ -24,6 +23,8 @@ class PaymentActivity : AppCompatActivity() {
             return false
         } else {
 
+            val lojin= Intent(this, HomeActivity::class.java)
+            startActivity(lojin)
             return true
         }
     }
