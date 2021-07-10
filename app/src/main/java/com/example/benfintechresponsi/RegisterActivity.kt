@@ -48,6 +48,13 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
+                if(confirmpass.length() > 0 && etpassword.length() > 0){
+                    if(!confirmpass.equals(etpassword)) {
+                        confirmpass.error = "Password Tidak Cocok"
+                        }
+
+
+                }
             }
         })
 
