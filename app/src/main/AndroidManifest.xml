@@ -11,11 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BenFintechResponsi">
-        <activity android:name=".isisetting.BankActivity"></activity>
-        <activity android:name=".isisetting.ProfileActivity"
-            android:label="Profile"/>
-        <activity android:name=".PaymentActivity"
-            android:label="Payment"/>
+        <activity android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".isisetting.HelpActivity" />
+        <activity android:name=".isisetting.PasswordActivity" />
+        <activity android:name=".isisetting.CreditCardActivity" />
+        <activity android:name=".isisetting.BankActivity" />
+        <activity
+            android:name=".isisetting.ProfileActivity"
+            android:label="Profile" />
+        <activity
+            android:name=".PaymentActivity"
+            android:label="Payment" />
         <activity
             android:name=".RegisterActivity"
             android:label="Register Account" />
@@ -26,7 +33,7 @@
             android:name=".HomeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

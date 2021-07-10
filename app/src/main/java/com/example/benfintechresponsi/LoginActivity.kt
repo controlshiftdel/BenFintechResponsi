@@ -1,6 +1,7 @@
 package com.example.benfintechresponsi
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -12,6 +13,11 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
+
+    private var PRIVATE_MODE = 0
+    private val PREF_NAME = "responsi"
+    var sharedPref : SharedPreferences? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -19,12 +25,18 @@ class LoginActivity : AppCompatActivity() {
         var helper = MyDBHelper(applicationContext)
         var db = helper.readableDatabase
         btlogin.setOnClickListener {
+            sharedPref = this.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+            val editor = sharedPref!!.edit()
+            editor.putBoolean("hasLoggedIn", true)
+            editor.commit()
+
             var args = listOf<String>(etemail.text.toString(), etpassword.text.toString()).toTypedArray()
             var rs = db.rawQuery("SELECT * FROM USERS WHERE UNAME = ? AND PWD = ?", args)
             if(rs.moveToNext())
                 masuk()
             else
                 Toast.makeText(applicationContext, "Data User Tidak Terdaftar", Toast.LENGTH_SHORT).show()
+            finish()
         }
 
 

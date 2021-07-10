@@ -8,8 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.benfintechresponsi.PaymentActivity
 import com.example.benfintechresponsi.R
-import com.example.benfintechresponsi.isisetting.BankActivity
-import com.example.benfintechresponsi.isisetting.ProfileActivity
+import com.example.benfintechresponsi.isisetting.*
 import kotlinx.android.synthetic.main.fragment_payment.*
 import kotlinx.android.synthetic.main.fragment_setting.*
 
@@ -53,19 +52,19 @@ class SettingFragment : Fragment() {
         }
         tvcredit.setOnClickListener{
             activity?.let{
-                val intent = Intent (it, PaymentActivity::class.java)
+                val intent = Intent (it, CreditCardActivity::class.java)
                 startActivity(intent)
             }
         }
         tvpassword.setOnClickListener{
             activity?.let{
-                val intent = Intent (it, PaymentActivity::class.java)
+                val intent = Intent (it, PasswordActivity::class.java)
                 startActivity(intent)
             }
         }
         tvhelp.setOnClickListener{
             activity?.let{
-                val intent = Intent (it, PaymentActivity::class.java)
+                val intent = Intent (it, HelpActivity::class.java)
                 startActivity(intent)
             }
         }
