@@ -40,7 +40,7 @@ class RegisterActivity : AppCompatActivity() {
 
         })
 
-        confirmpass.addTextChangedListener(object:TextWatcher  {
+        confirmpass.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
@@ -48,15 +48,7 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if(confirmpass.length() > 0 && etpassword.length() > 0){
-                    if(!confirmpass.equals(etpassword)) {
-                        confirmpass.setError("Password Tidak Cocok")
-                    }
-
-
-                }
             }
-
         })
 
         btregister.setOnClickListener{

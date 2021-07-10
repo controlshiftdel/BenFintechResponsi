@@ -13,7 +13,7 @@
 <ImageView
     android:layout_width="80dp"
     android:layout_height="80dp"
-    android:src="@drawable/fotoprof"
+    android:src="@drawable/banteng"
     android:layout_gravity="center"/>
     <TextView
         android:layout_width="match_parent"
