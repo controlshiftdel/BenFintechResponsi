@@ -1,6 +1,7 @@
 package com.example.benfintechresponsi.fragments
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.AutoFocusMode
@@ -34,6 +36,12 @@ class PaymentFragment : Fragment() {
                 startActivity(intent)
             }
         }
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)==
+            PackageManager.PERMISSION_DENIED){
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.CAMERA), 123)
+        }else{
+            startScanning()
+        }
 
     }
     override fun onCreateView(
@@ -45,17 +53,12 @@ class PaymentFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_payment, container, false)
 
 
-    /*if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)==
-            PackageManager.PERMISSION_DENIED){
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 123)
-        }else{
-            startScanning()
-        }*/
+
     }
 
-    /*private fun startScanning() {
+    private fun startScanning() {
         val scannerView: CodeScannerView = scanner_view
-        codescanner = CodeScanner(this, scannerView)
+        codescanner = CodeScanner(requireContext(), scannerView)
         codescanner.camera = CodeScanner.CAMERA_BACK
         codescanner.formats = CodeScanner.ALL_FORMATS
 
@@ -64,10 +67,60 @@ class PaymentFragment : Fragment() {
         codescanner.isAutoFocusEnabled = true
         codescanner.isFlashEnabled = false
         codescanner.decodeCallback = DecodeCallback {
-            run
+
         }
 
-    }*/
+        scanner_view.setOnClickListener {
+            codescanner.startPreview()
+        }
+    }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>,grantResults: IntArray){
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 123){
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(requireContext(), "Camera granted", Toast.LENGTH_SHORT).show()
+                startScanning()
+            }else{
+                Toast.makeText(requireContext(), "Camera denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (::codescanner.isInitialized){
+            codescanner?.startPreview()
+        }
+    }
+
+    override fun onPause() {
+        if (::codescanner.isInitialized){
+            codescanner?.releaseResources()
+        }
+        super.onPause()
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
