@@ -12,8 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BenFintechResponsi">
         <activity android:name=".isisetting.BankActivity"></activity>
-        <activity android:name=".isisetting.ProfileActivity" />
-        <activity android:name=".PaymentActivity" />
+        <activity android:name=".isisetting.ProfileActivity"
+            android:label="Profile"/>
+        <activity android:name=".PaymentActivity"
+            android:label="Payment"/>
         <activity
             android:name=".RegisterActivity"
             android:label="Register Account" />
