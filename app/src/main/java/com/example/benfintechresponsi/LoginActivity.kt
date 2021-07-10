@@ -27,16 +27,20 @@ class LoginActivity : AppCompatActivity() {
         btlogin.setOnClickListener {
             sharedPref = this.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
             val editor = sharedPref!!.edit()
-            editor.putBoolean("hasLoggedIn", true)
-            editor.commit()
+            fun make(){
+                editor.putBoolean("hasLoggedIn", true)
+                editor.commit()
+            }
+
 
             var args = listOf<String>(etemail.text.toString(), etpassword.text.toString()).toTypedArray()
             var rs = db.rawQuery("SELECT * FROM USERS WHERE UNAME = ? AND PWD = ?", args)
-            if(rs.moveToNext())
+            if(rs.moveToNext()){
                 masuk()
-            else
+                make()}
+            else{
                 Toast.makeText(applicationContext, "Data User Tidak Terdaftar", Toast.LENGTH_SHORT).show()
-            finish()
+            }
         }
 
 
