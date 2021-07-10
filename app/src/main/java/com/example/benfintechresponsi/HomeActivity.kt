@@ -1,5 +1,6 @@
 package com.example.benfintechresponsi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -9,6 +10,7 @@ import com.example.benfintechresponsi.fragments.HomeFragment
 import com.example.benfintechresponsi.fragments.PaymentFragment
 import com.example.benfintechresponsi.fragments.SettingFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.fragment_payment.*
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,8 +21,6 @@ class HomeActivity : AppCompatActivity() {
         var db = helper.readableDatabase
         var rs = db.rawQuery("SELECT * FROM USERS", null)
 
-        if (rs.moveToNext())
-            Toast.makeText(applicationContext, rs.getString(1), Toast.LENGTH_LONG).show()
 
 
         val homeFragment = HomeFragment()
@@ -39,6 +39,7 @@ class HomeActivity : AppCompatActivity() {
             }
             true
         }
+
 
 
     }

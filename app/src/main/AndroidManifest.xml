@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.benfintechresponsi">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -11,13 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BenFintechResponsi">
-        <activity android:name=".RegisterActivity"
-            android:label="Register Account"></activity>
-        <activity android:name=".RecoveryActivity"
-            android:label="Recovery Account"/>
-        <activity android:name=".HomeActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".LoginActivity"
+        <activity android:name=".PaymentActivity"></activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="Register Account" />
+        <activity
+            android:name=".RecoveryActivity"
+            android:label="Recovery Account" />
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -10,11 +10,22 @@
     <com.budiyev.android.codescanner.CodeScannerView
         android:id="@+id/scanner_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="426dp"
         app:autoFocusButtonColor="@color/white"
         app:autoFocusButtonVisible="true"
         app:flashButtonColor="@color/white"
-        app:flashButtonVisible="true"/>
+        app:flashButtonVisible="true" />
+
+    <TextView
+        android:id="@+id/tvkode"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_gravity="bottom"
+        android:text="Punya kode pembayaran? klik ini"
+        android:textAlignment="center"
+        android:textColor="#03A9F4"
+        android:textSize="20sp"
+        tools:ignore="RtlCompat" />
 
 
 </FrameLayout>
