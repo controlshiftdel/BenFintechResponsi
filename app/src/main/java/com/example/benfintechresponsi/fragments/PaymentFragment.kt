@@ -22,7 +22,8 @@ import com.example.benfintechresponsi.PaymentActivity
 import com.example.benfintechresponsi.R
 import com.example.benfintechresponsi.RecoveryActivity
 import kotlinx.android.synthetic.main.fragment_payment.*
-
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
 class PaymentFragment : Fragment() {
 
